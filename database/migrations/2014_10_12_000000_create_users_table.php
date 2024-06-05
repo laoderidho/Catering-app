@@ -17,8 +17,14 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('address');
+            $table->string('contact');
+            $table->string('deskripsi')->nullable();
+            $table->unsignedBigInteger('roleId');
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('roleId')->references('id')->on('roles');
         });
     }
 
